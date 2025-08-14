@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Capital Lanka</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f8f8f8;
+    }
+
+    /* HERO SECTION */
+    .hero {
+        background-image: url('https://i.ibb.co/3y2KdSYk/Whats-App-Image-2025-08-11-at-22-24-50-fff8e369.jpg');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+        position: relative;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+        color: rgba(255,255,255,0.95);
+        line-height: 1.4;
+    }
+
+    .hero p.lead {
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        color: rgba(255,255,255,0.9);
+    }
+
+    /* CTA CIRCLE */
+    .cta-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background-color: #03bd5d;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.25s, transform 0.18s;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        overflow: hidden;
+        animation: gentlePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes gentlePulse {
+        0%   { transform: scale(1);       box-shadow: 0 8px 18px rgba(0,0,0,0.18); }
+        50%  { transform: scale(0.98);    box-shadow: 0 10px 22px rgba(0,0,0,0.20); }
+        100% { transform: scale(1);       box-shadow: 0 8px 18px rgba(0,0,0,0.18); }
+    }
+
+    .cta-circle:hover {
+        background-color: #007f3e;
+        transform: scale(1.06);
+        animation-play-state: paused;
+    }
+
+    /* upgraded click animation */
+    @keyframes clickShrink {
+        0% {
+            transform: scale(1.06);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+        }
+        30% {
+            transform: scale(0.85);
+            box-shadow: 0 12px 26px rgba(0,0,0,0.25);
+        }
+        60% {
+            transform: scale(1.08);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+        }
+    }
+
+    .cta-circle.pulse-once {
+        animation: clickShrink 500ms ease-out;
+    }
+
+    /* ripple effect */
+    .cta-circle.pulse-once::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: 50%;
+        left: 50%;
+        background: rgba(255,255,255,0.25);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        animation: rippleEffect 500ms ease-out;
+        pointer-events: none;
+    }
+
+    @keyframes rippleEffect {
+        to {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0;
+        }
+    }
+
+    /* small arrow animation inside text */
+    .cta-text {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .cta-arrow {
+        display: inline-block;
+        transform: translateX(0);
+        transition: transform 0.18s ease;
+    }
+
+    .cta-circle:hover .cta-arrow {
+        transform: translateX(4px);
+    }
+
+    /* FOOTER SECTION */
+    footer {
+        background-color: #1e0d2c;
+        color: #fff;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .footer-contact p {
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .phone {
+        color: #00c27c;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+
+    .footer-menus {
+        margin-top: 20px;
+    }
+
+    .menu-item {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding: 10px 0;
+        cursor: pointer;
+    }
+
+    .menu-item h3 {
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .arrow {
+        font-size: 14px;
+        transition: transform 0.3s ease;
+    }
+
+    .submenu {
+        display: none;
+        padding-left: 10px;
+        font-size: 14px;
+        color: rgba(255,255,255,0.7);
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px 0;
+        flex-wrap: wrap;
+    }
+
+    .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .footer-links a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 10px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .company-info {
+        margin-top: 5px;
+        color: rgba(255,255,255,0.7);
+    }
+
+    .open .arrow {
+        transform: rotate(180deg);
+    }
+
+    @media (max-width: 480px) {
+        .cta-circle { width: 110px; height: 110px; font-size: 15px; }
+        .hero h1 { font-size: 22px; }
+    }
+</style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>
+        Apply below to receive an amount ranging from 
+        <span style="color:#d405df; font-size:1.4em; font-weight:bold;">Rs. 40,000</span> 
+        to 
+        <span style="color:#d405df; font-size:1.4em; font-weight:bold;">Rs. 600,000</span>.
+    </h1>
+    <p class="lead">Fast, secure and hassle-free loan approval process</p>
+    <a href="https://forms.gle/57TqKiTUySpdYA6Z9" class="cta-circle" id="startNow">
+        <span class="cta-text">Start Now <span class="cta-arrow">→</span></span>
+    </a>
+</section>
+
+<!-- FOOTER SECTION -->
+<footer>
+    <div class="footer-contact">
+        <p>📞 <span class="phone">0725600063</span></p>
+        <p>✉ info@capitallanka.lk</p>
+        <p>⏰ Mon - Sun: 8.30am to 10.30pm</p>
+    </div>
+
+    <div class="footer-menus">
+        <div class="menu-item">
+            <h3>Company <span class="arrow">▼</span></h3>
+            <div class="submenu">
+                <p>About Us</p>
+                <p>Careers</p>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <h3>Customer <span class="arrow">▼</span></h3>
+            <div class="submenu">
+                <p>Help Center</p>
+                <p>Support</p>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <h3>Social <span class="arrow">▼</span></h3>
+            <div class="submenu">
+                <p>Facebook</p>
+                <p>Instagram</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <a href="#">Terms and Conditions</a>
+        <a href="#">Privacy Policy</a>
+    </div>
+
+    <div class="footer-bottom">
+        © 2024 - 2025. All rights reserved
+        <div class="company-info">
+            Capital Lanka | S F Group (PRIVATE) LIMITED is a company duly incorporated and registered under the laws of Sri Lanka, 
+            with Company Registration No. PV 00221752 granted by Registrar General of Companies in Mawanella.
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('click', () => {
+            item.classList.toggle('open');
+            const submenu = item.querySelector('.submenu');
+            submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+
+    const startBtn = document.getElementById('startNow');
+    startBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        startBtn.classList.remove('pulse-once');
+        void startBtn.offsetWidth; // reflow trigger
+        startBtn.classList.add('pulse-once');
+
+        // Animation ඉවර උනාම link open වෙන්න
+        startBtn.addEventListener('animationend', (ev) => {
+            if (ev.animationName === 'clickShrink') {
+                window.location.href = startBtn.href;
+            }
+        }, { once: true });
+    });
+</script>
+
+</body>
+</html>
