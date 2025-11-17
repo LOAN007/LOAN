@@ -70,7 +70,7 @@
         animation-play-state: paused;
     }
 
-    /* upgraded click animation */
+    /* click animation */
     @keyframes clickShrink {
         0% {
             transform: scale(1.06);
@@ -116,7 +116,7 @@
         }
     }
 
-    /* small arrow animation inside text */
+    /* small arrow animation */
     .cta-text {
         display: inline-flex;
         align-items: center;
@@ -233,6 +233,7 @@
         <span style="color:#d405df; font-size:1.4em; font-weight:bold;">Rs. 600,000</span>.
     </h1>
     <p class="lead">Fast, secure and hassle-free loan approval process</p>
+
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8GxEqJhyI5JaDBN8ckuPm3yYIzdHA71GWwLwLH1H5VEvrPQ/viewform?usp=header" class="cta-circle" id="startNow">
         <span class="cta-text">Start Now <span class="cta-arrow">→</span></span>
     </a>
@@ -241,9 +242,10 @@
 <!-- FOOTER SECTION -->
 <footer>
     <div class="footer-contact">
-        <p>📞 <span class="phone">0782823378</span></p>
-        <p>✉ info@zencapital.lk</p>
-        <p>⏰ Mon - Sun: 8.30am to 10.30pm</p>
+        <p>📞 <span class="phone">0721757058</span></p>
+        <p>✉ primelanka@gmail.com</p>
+        <p>⏰ Mon - Sun: 8.00am to 9.00pm</p>
+        <p>📍 Nawala Road, Nugegoda 10250</p>
     </div>
 
     <div class="footer-menus">
@@ -288,7 +290,7 @@
 
 <script>
     document.querySelectorAll('.menu-item').forEach(item => {
-        item.addEventListener('click', () => {
+        item.querySelector('h3').addEventListener('click', () => {
             item.classList.toggle('open');
             const submenu = item.querySelector('.submenu');
             submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
@@ -296,18 +298,18 @@
     });
 
     const startBtn = document.getElementById('startNow');
+
     startBtn.addEventListener('click', function(e) {
         e.preventDefault();
         startBtn.classList.remove('pulse-once');
-        void startBtn.offsetWidth; // reflow trigger
+        void startBtn.offsetWidth;
         startBtn.classList.add('pulse-once');
+    });
 
-        // Animation ඉවර උනාම link open වෙන්න
-        startBtn.addEventListener('animationend', (ev) => {
-            if (ev.animationName === 'clickShrink') {
-                window.location.href = startBtn.href;
-            }
-        }, { once: true });
+    startBtn.addEventListener('animationend', function(ev) {
+        if (ev.animationName === 'clickShrink') {
+            window.location.href = startBtn.href;
+        }
     });
 </script>
 
